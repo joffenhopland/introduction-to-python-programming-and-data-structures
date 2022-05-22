@@ -1,0 +1,2 @@
+document = input("Enter the path to a file: ")
+input_file = open(document, r)

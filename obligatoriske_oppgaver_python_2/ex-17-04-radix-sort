@@ -1,0 +1,44 @@
+from random import randint
+
+
+def main():
+    number = randint(1000000, 9999999)
+    lst = [int(x) for x in str(number)]
+    print(lst)
+    sorted_list = radixSort(lst)
+    print(sorted_list)
+
+
+def radixSort(list):
+    N = 10
+    buckets = N * [0]
+
+    for position in range(len(list)):
+        # Clear buckets
+        for i in range(len(buckets)):
+            buckets[i] = []
+
+        # Distribute the elements from list to buckets
+        for i in range(len(list)):
+            key = getKey(list[i], position)
+            buckets[key].append(list[i])
+
+        # Now move the elements from the buckets back to list
+        k = 0  # k is an index for list
+        for i in range(len(buckets)):
+            for j in range(len(buckets[i])):
+                list[k] = buckets[i][j]
+                k += 1
+
+    return list
+
+
+def getKey(number, position):
+    result = 1
+    for i in range(position):
+        result *= 10
+
+    return (number // result) % 10
+
+
+main()

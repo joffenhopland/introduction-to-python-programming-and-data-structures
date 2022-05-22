@@ -1,0 +1,24 @@
+entry = "9 30 3 9 3 2 4"
+lst_str = list(entry.split(" "))
+lst = [int(x) for x in lst_str]
+print(lst)
+
+dictionary = {}
+
+for num in lst:
+    if num in dictionary:
+        dictionary[num] += 1
+    else:
+        dictionary[num] = 1
+print(dictionary)
+
+maxCount = max(dictionary.values())
+print(maxCount)
+
+pairs = list(dictionary.items())
+print(pairs)
+
+print("The numbers with the most occurrence are ", end="")
+for (y, x) in pairs:
+    if x == maxCount:
+        print(y, end=" ")

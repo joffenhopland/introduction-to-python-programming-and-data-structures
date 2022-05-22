@@ -1,0 +1,14 @@
+def main():
+
+    i = 16
+    print(format(i, "<4d"), format(m(i), "<10.4f"))
+
+
+def m(i):
+    if i == 1:
+        return 1 / 2
+    else:
+        return m(i - 1) + i / (i + 1)
+
+
+main()
